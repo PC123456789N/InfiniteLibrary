@@ -4,7 +4,7 @@ import { useState } from 'react'
 function App() {
   return (
     <>
-    wawdawdawdadadaw
+    <p className='text-5xl'>wablua</p>
 
     </>
   )
