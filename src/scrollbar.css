@@ -1,0 +1,15 @@
+#news-scroll::-webkit-scrollbar {
+  width: 15px;
+}
+
+#news-scroll::-webkit-scrollbar-track {
+  background: #111;
+}
+
+#news-scroll::-webkit-scrollbar-thumb {
+  background: #640000;
+}
+
+#news-scroll::-webkit-scrollbar-thumb:hover {
+  background: #7e0000;
+}

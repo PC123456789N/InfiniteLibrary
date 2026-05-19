@@ -1,10 +1,12 @@
 import { useState } from 'react'
-import { FaChevronLeft } from "react-icons/fa";
-import { FaChevronRight } from "react-icons/fa";
 
 import bg from "./assets/bgvideo.mp4"
 import bgSit from "./assets/bgvideosit.mp4"
 import news from "./assets/journual.png"
+
+import NewsArticle from './NewsArticle';
+import SideArrow from './SideArrow';
+import OpenNews from './OpenNews';
 
 
 
@@ -12,7 +14,7 @@ import news from "./assets/journual.png"
 function App() {
   const [fade, setFade] = useState(false);
   const [sit, setSit] = useState(false);
-  const [showJournal, setShowJournal] = useState(false);
+  const [showArticle, setShowArticle] = useState(false);
 
   function changeFrame() {
     // escurece
@@ -79,48 +81,9 @@ function App() {
       />
 
       {/* Left Arrow */}
-      <button
-        className="
-          absolute
-          left-4
-          top-1/2
-          -translate-y-1/2
-          z-30
-          bg-white/10
-          hover:bg-white/20
-          border
-          border-white/20
-          rounded-full
-          p-3
-          text-white
-          transition
-          cursor-pointer
-        "
-      >
-        <FaChevronLeft size={32} />
-      </button>
-
+      {!sit && <SideArrow left={true}/>}
       {/* Right Arrow */}
-      <button
-        className="
-          absolute
-          right-4
-          top-1/2
-          -translate-y-1/2
-          z-30
-          bg-white/10
-          hover:bg-white/20
-          border
-          border-white/20
-          rounded-full
-          p-3
-          text-white
-          transition
-          cursor-pointer
-        "
-      >
-        <FaChevronRight size={32} />
-      </button>
+      {!sit && <SideArrow left={false}/>}
 
       <button
         onClick={changeFrame}
@@ -141,35 +104,12 @@ function App() {
       </button>
 
       {/* Optional Content */}
-      {!sit && (
-        <div className="absolute inset-0 flex items-center justify-center z-20">
-          <h1 className="text-white text-4xl font-bold tracking-wide">
-            Infinite Library
-          </h1>
-        </div>
+      {showArticle && (
+        <OpenNews/>
       )}
 
-      {sit && (
-        <img
-        src={news}
-        alt="Jornal"
-        onClick={() => alert("Abrir jornal")}
-        className="
-          fixed
-          top-1/2 left-1/2
-          -translate-x-1/2 -translate-y-1/2
-          w-130
-          -rotate-2
 
-          hover:scale-105
-
-          transition-all
-          duration-300
-
-          cursor-pointer
-          z-20
-        "/>
-      )}
+      {sit && <NewsArticle setShowArticle={setShowArticle} showArticle={showArticle}/>}
 
     </div>
   );
