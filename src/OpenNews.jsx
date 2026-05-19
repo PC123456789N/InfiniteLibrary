@@ -27,7 +27,7 @@ function OpenNews() {
       <div 
         id="news-scroll" 
         className="
-          md:h-full w-[75%] 
+          lg:h-full md:w-[75%] w-full 
           bg-gray-950 
           overflow-y-scroll 
           scrollbar 
