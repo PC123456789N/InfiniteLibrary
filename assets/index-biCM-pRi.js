@@ -50,7 +50,7 @@ Error generating stack: `+e.message+`
             transition\r
             cursor-pointer\r
           `,children:(0,S.jsx)(fe,{size:32})})]})}var D=`/InfiniteLibrary/assets/page1-CjTKajvw.png`;function O(){let e=[D,D],[t,n]=(0,_.useState)(0);function r(){t<e.length-1&&n(t+1)}function i(){t>0&&n(t-1)}return(0,S.jsx)(`div`,{className:`fixed inset-0 z-50 flex items-center justify-center pointer-events-none`,children:(0,S.jsx)(`div`,{id:`news-scroll`,className:`\r
-          md:h-full w-[75%] \r
+          lg:h-full md:w-[75%] w-full \r
           bg-gray-950 \r
           overflow-y-scroll \r
           scrollbar \r
