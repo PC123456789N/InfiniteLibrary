@@ -18,6 +18,7 @@ function App() {
 
   function changeFrame() {
     // escurece
+    setShowArticle(false)
     setFade(true);
 
     // espera a animação
@@ -80,15 +81,10 @@ function App() {
         `}
       />
 
-      {/* Left Arrow */}
-      {!sit && <SideArrow left={true}/>}
-      {/* Right Arrow */}
-      {!sit && <SideArrow left={false}/>}
-
       <button
         onClick={changeFrame}
         className="
-          fixed z-30
+          fixed w-100 z-20
           -bottom-7 left-1/2
           -translate-x-1/2 -translate-y-1/2
           bg-gray-600/50 text-gray-100 font-semibold 
@@ -100,12 +96,12 @@ function App() {
           cursor-pointer
         "
       >
-        Ver o Jornal
+        {showArticle ? `Fechar o Jornal`: `Ver o Jornal`}
       </button>
 
       {/* Optional Content */}
       {showArticle && (
-        <OpenNews/>
+        <OpenNews setShowArticle={setShowArticle}/>
       )}
 
 

@@ -1,14 +1,20 @@
 import { useState } from "react";
 import "./scrollbar.css";
-import page1 from "./assets/page1.png";
-import page2 from "./assets/page1.png"; 
+import SideArrow from "./SideArrow";
+import { IoMdClose } from "react-icons/io";
 
-function OpenNews() {
-  const pages = [page1, page2];
+import page1 from "./assets/page1.png";
+import page2 from "./assets/page1.png";
+import page3 from "./assets/page1.png"; 
+import page4 from "./assets/page1.png";
+import page5 from "./assets/page1.png";   
+
+function OpenNews( {setShowArticle}) {
+  const pages = [page1, page2, page3, page4, page5];
   const [pageIndex, setPageIndex] = useState(0);
 
   function nextPage() {
-    if (pageIndex < pages.length - 1) {
+    if (pageIndex < 5) {
       setPageIndex(pageIndex + 1);
     }
   }
@@ -21,13 +27,15 @@ function OpenNews() {
 
   return (
     /* 1. SCREEN WRAPPER: Centers the component on the viewport */
-    <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
+    <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-auto">
+      <SideArrow left={true} setPageIndex={setPageIndex} pageIndex={pageIndex}/>
+      <SideArrow left={false} setPageIndex={setPageIndex} pageIndex={pageIndex}/>
       
       {/* 2. THE WINDOW (Scroll Container): Restricts the height and scrolls */}
       <div 
         id="news-scroll" 
         className="
-          lg:h-full md:w-[75%] w-full 
+          lg:h-full lg:w-[75%] md:w-[90%] w-full 
           bg-gray-950 
           overflow-y-scroll 
           scrollbar 
@@ -37,36 +45,14 @@ function OpenNews() {
       >
         {/* 3. THE CONTENT WRAPPER: This relative container grows to match the image height */}
         <div className="relative w-full">
-          
           {/* The dynamic image determining the true height */}
           <img src={pages[pageIndex]} alt={`Page ${pageIndex + 1}`} className="w-full h-auto block" />
-
-          {/* 🔺 TRIÂNGULO SUPERIOR ESQUERDO (At the absolute top of the image) */}
-          <div className="absolute top-0 left-0 z-10">
-            <div
-              onClick={prevPage}
-              className="
-                w-0 h-0 cursor-pointer
-                border-l-60 border-b-60
-                md:border-l-100 border-r-0 md:border-b-100
-                border-l-black border-b-transparent
-              "
+          <div className="absolute top-0 z-50 ">
+            <button className="bg-amber-100 rounded-2xl hover:bg-black transition duration-150"
+            onClick={() => setShowArticle(false)}
             >
-            </div>
-          </div>
-
-          {/* 🔻 TRIÂNGULO INFERIOR ESQUERDO (At the absolute bottom of the image) */}
-          <div className="absolute bottom-0 left-0 z-10">
-            <div
-              onClick={nextPage}
-              className="
-                w-0 h-0 cursor-pointer
-                border-l-60 border-t-60
-                md:border-l-100 border-r-0 md:border-t-100
-                border-l-black border-t-transparent
-              "
-            >
-            </div>
+              <IoMdClose className=" transition duration-150 size-16 md:size-10 hover:text-white"/>
+            </button>
           </div>
 
         </div>
