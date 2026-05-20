@@ -4,26 +4,13 @@ import SideArrow from "./SideArrow";
 import { IoMdClose } from "react-icons/io";
 
 import page1 from "./assets/page1.png";
-import page2 from "./assets/page1.png";
-import page3 from "./assets/page1.png"; 
-import page4 from "./assets/page1.png";
-import page5 from "./assets/page1.png";   
+import page2 from "./assets/page2.png";
+import page3 from "./assets/page3.png"; 
+import page4 from "./assets/page4.png";  
 
 function OpenNews( {setShowArticle}) {
-  const pages = [page1, page2, page3, page4, page5];
+  const pages = [page1, page2, page3, page4];
   const [pageIndex, setPageIndex] = useState(0);
-
-  function nextPage() {
-    if (pageIndex < 3) {
-      setPageIndex(pageIndex + 1);
-    }
-  }
-
-  function prevPage() {
-    if (pageIndex > 0) {
-      setPageIndex(pageIndex - 1);
-    }
-  }
 
   return (
     /* 1. SCREEN WRAPPER: Centers the component on the viewport */

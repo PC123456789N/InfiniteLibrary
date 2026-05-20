@@ -4,7 +4,7 @@ import { FaChevronRight } from "react-icons/fa";
 function SideArrow( {left, pageIndex, setPageIndex} ){
 
   function nextPage() {
-    if (pageIndex < 5) {
+    if (pageIndex < 3) {
       setPageIndex(pageIndex + 1);
     }
   }
