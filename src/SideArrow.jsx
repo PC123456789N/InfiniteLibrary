@@ -6,14 +6,12 @@ function SideArrow( {left, pageIndex, setPageIndex} ){
   function nextPage() {
     if (pageIndex < 5) {
       setPageIndex(pageIndex + 1);
-      console.log(pageIndex)
     }
   }
 
   function prevPage() {
     if (pageIndex > 0) {
       setPageIndex(pageIndex - 1);
-      console.log(pageIndex)
     }
   }
   

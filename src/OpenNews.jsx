@@ -14,7 +14,7 @@ function OpenNews( {setShowArticle}) {
   const [pageIndex, setPageIndex] = useState(0);
 
   function nextPage() {
-    if (pageIndex < 5) {
+    if (pageIndex < 3) {
       setPageIndex(pageIndex + 1);
     }
   }
