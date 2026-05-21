@@ -28,7 +28,7 @@ function MainPage( {setEntered} ) {
 
       // volta ao normal
       setTimeout(() => {
-        if(!goSit){setEntered(false)}
+        if(!goSit){setEntered(0)}
         setFade(false);
       }, 100);
 

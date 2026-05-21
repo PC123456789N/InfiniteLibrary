@@ -14,10 +14,12 @@ import MainPage from './MainPage';
 
 
 function App() {
-  const [entered, setEntered] = useState(false)
+  const [entered, setEntered] = useState(0)
   return (
     <>
-      {entered ? <MainPage setEntered={setEntered} /> : <MainMenu setEntered={setEntered} />}
+      {entered == 0 && <MainMenu setEntered={setEntered} /> }
+      {entered == 1 && <MainPage setEntered={setEntered} /> }
+      {entered == 2 && <MainPage setEntered={setEntered} /> }
     </>
   );
 }

@@ -18,12 +18,25 @@ function SideButton( {home, setEntered, setCredits, setFade} ){
       setTimeout(() => {
         setFade(false);
       }, 100);
-      setEntered(false)
+      setEntered(0)
     }, 1000);
   }
 
-  function prevPage() {
-    return;
+  function GoCredits() {
+    setFade(true);
+
+    // espera a animação
+    setTimeout(() => {
+
+      // aqui você troca o frame/tela
+      
+
+      // volta ao normal
+      setTimeout(() => {
+        setFade(false);
+      }, 100);
+      setEntered(2)
+    }, 1000);
   }
   
   return(
@@ -53,7 +66,7 @@ function SideButton( {home, setEntered, setCredits, setFade} ){
         </button>
       )}
 
-      {home && (
+      {!home && (
         <button
         className="
         absolute
@@ -71,7 +84,7 @@ function SideButton( {home, setEntered, setCredits, setFade} ){
         transition
         cursor-pointer
         "
-        onClick={() => nextPage()}
+        onClick={() => GoCredits()}
         >
           <IoInformationCircle size={32} />
         </button>

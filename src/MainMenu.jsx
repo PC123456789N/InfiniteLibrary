@@ -18,7 +18,7 @@ function MainMenu( {setEntered} ) {
       setTimeout(() => {
         setFade(false);
       }, 100);
-      setEntered(true)
+      setEntered(1)
     }, 1000);
   }
   
