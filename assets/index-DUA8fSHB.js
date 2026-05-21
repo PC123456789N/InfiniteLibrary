@@ -138,4 +138,12 @@ Error generating stack: `+e.message+`
           hover:bg-gray-500/50\r
           hover:scale-105\r
           cursor-pointer\r
-        `,children:r?`Voltar`:`Ver o Jornal`}),a&&(0,C.jsx)(ye,{setShowArticle:o}),(0,C.jsx)(`audio`,{ref:s}),r&&(0,C.jsx)(te,{setShowArticle:o,showArticle:a}),!r&&(0,C.jsx)(Ee,{home:!0,setEntered:e,setCredits:!0,setFade:n}),!r&&(0,C.jsx)(Ee,{home:!1,setEntered:e,setCredits:!0,setFade:n})]})}function Oe(){let[e,t]=(0,_.useState)(0);return(0,C.jsxs)(C.Fragment,{children:[e==0&&(0,C.jsx)(Se,{setEntered:t}),e==1&&(0,C.jsx)(De,{setEntered:t}),e==2&&(0,C.jsx)(De,{setEntered:t})]})}(0,v.createRoot)(document.getElementById(`root`)).render((0,C.jsx)(_.StrictMode,{children:(0,C.jsx)(Oe,{})}));
+        `,children:r?`Voltar`:`Ver o Jornal`}),a&&(0,C.jsx)(ye,{setShowArticle:o}),(0,C.jsx)(`audio`,{ref:s}),r&&(0,C.jsx)(te,{setShowArticle:o,showArticle:a}),!r&&(0,C.jsx)(Ee,{home:!0,setEntered:e,setCredits:!0,setFade:n}),!r&&(0,C.jsx)(Ee,{home:!1,setEntered:e,setCredits:!0,setFade:n})]})}var Oe=`/InfiniteLibrary/assets/credits-BzRI-Tbz.png`;function ke({setEntered:e}){return(0,C.jsxs)(C.Fragment,{children:[(0,C.jsx)(`div`,{className:`relative w-screen h-screen overflow-hidden`,children:(0,C.jsx)(`img`,{src:Oe,alt:`Jornal`,className:`\r
+          top-1/2 left-1/2\r
+          -translate-x-1/2 -translate-y-1/2\r
+          absolute inset-0 w-full h-full object-cover md:object-fill\r
+        `})}),(0,C.jsx)(`button`,{className:`bottom-0 left-1/2\r
+          -translate-x-1/2 -translate-y-1/2\r
+          absolute\r
+          \r
+        `,onClick:()=>e(0),children:(0,C.jsx)(`p`,{className:`text-white/50 transition font-semibold text-3xl hover:text-red-600`,children:`Sair`})})]})}function Ae(){let[e,t]=(0,_.useState)(0);return(0,C.jsxs)(C.Fragment,{children:[e==0&&(0,C.jsx)(Se,{setEntered:t}),e==1&&(0,C.jsx)(De,{setEntered:t}),e==2&&(0,C.jsx)(ke,{setEntered:t})]})}(0,v.createRoot)(document.getElementById(`root`)).render((0,C.jsx)(_.StrictMode,{children:(0,C.jsx)(Ae,{})}));
