@@ -1,8 +1,13 @@
 import { useState } from 'react'
+import { useRef } from "react";
 
 import bg from "./assets/bgvideo.mp4"
 import bgSit from "./assets/bgvideosit.mp4"
 import news from "./assets/journual.png"
+
+import aud1 from "./assets/pagesflip.mp3"
+import aud2 from "./assets/steps.mp3"
+import aud3 from "./assets/opendoor.mp3"
 
 import NewsArticle from './NewsArticle';
 import SideArrow from './SideArrow';
@@ -14,9 +19,17 @@ function MainPage( {setEntered} ) {
   const [fade, setFade] = useState(false);
   const [sit, setSit] = useState(false);
   const [showArticle, setShowArticle] = useState(false);
+  const audioRef = useRef(null);
 
   function changeFrame(goSit) {
     // escurece
+    if(!goSit){
+      playAudio(3)
+    } else{
+      playAudio(2)
+    }
+    
+    playAudio(2)
     setShowArticle(false)
     setFade(true);
 
@@ -24,16 +37,44 @@ function MainPage( {setEntered} ) {
     setTimeout(() => {
 
       // aqui você troca o frame/tela
-      if(goSit){setSit(!sit)}
+      if(goSit){setSit(!sit);}
 
       // volta ao normal
       setTimeout(() => {
-        if(!goSit){setEntered(0)}
+        if(!goSit){setEntered(0);}
         setFade(false);
       }, 100);
 
     }, 1000);
-  }
+  };
+
+  function playAudio(audioCode){
+    if (audioRef.current) {
+      switch (audioCode) {
+        case 1:
+          audioRef.current.src = aud1;
+          break
+        case 2:
+          audioRef.current.src = aud2;
+          break
+        case 3:
+          audioRef.current.src = aud3;
+          console.log("case3")
+          break
+      }
+
+      audioRef.current.volume = 0.5;
+      audioRef.current.currentTime = 0;
+
+      audioRef.current.play()
+        .then(() => {
+          console.log("Áudio tocando");
+        })
+        .catch((err) => {
+          console.log("Erro ao tocar áudio:", err);
+        });
+    }
+  };
 
   return (
      <div className="relative w-screen h-screen overflow-hidden">
@@ -103,6 +144,9 @@ function MainPage( {setEntered} ) {
       {showArticle && (
         <OpenNews setShowArticle={setShowArticle}/>
       )}
+
+      <audio ref={audioRef} />
+
 
 
       {sit && <NewsArticle setShowArticle={setShowArticle} showArticle={showArticle}/>}

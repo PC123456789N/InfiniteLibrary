@@ -1,22 +1,49 @@
 import { FaChevronLeft } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
+import { useRef } from "react";
+
+import aud1 from "./assets/pagesflip.mp3"
 
 function SideArrow( {left, pageIndex, setPageIndex} ){
+  const audioRef = useRef(null);
+
+  function playAudio(){
+    if (audioRef.current) {
+
+      audioRef.current.volume = 0.5;
+      audioRef.current.currentTime = 0;
+
+      audioRef.current.play()
+        .then(() => {
+          console.log("Áudio tocando");
+        })
+        .catch((err) => {
+          console.log("Erro ao tocar áudio:", err);
+        });
+    }
+  };
 
   function nextPage() {
     if (pageIndex < 3) {
+      playAudio()
       setPageIndex(pageIndex + 1);
     }
   }
 
   function prevPage() {
     if (pageIndex > 0) {
+      playAudio()
       setPageIndex(pageIndex - 1);
     }
   }
+
   
   return(
     <>
+      <audio ref={audioRef}>
+        <source src={aud1} type="audio/mpeg" />
+      </audio>
+
       {left && pageIndex > 0 && (
         <button
           className="

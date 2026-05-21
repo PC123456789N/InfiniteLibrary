@@ -10,13 +10,25 @@ import page4 from "./assets/page4.png";
 
 function OpenNews( {setShowArticle}) {
   const pages = [page1, page2, page3, page4];
+  const [fade, setFade] = useState(false)
   const [pageIndex, setPageIndex] = useState(0);
+
+  function changePage(newIndex) {
+
+  setFade(true);
+
+  setPageIndex(newIndex);
+
+  setTimeout(() => {
+    setFade(false);
+  }, 300);
+}
 
   return (
     /* 1. SCREEN WRAPPER: Centers the component on the viewport */
     <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-auto">
-      <SideArrow left={true} setPageIndex={setPageIndex} pageIndex={pageIndex}/>
-      <SideArrow left={false} setPageIndex={setPageIndex} pageIndex={pageIndex}/>
+      <SideArrow left={true} setPageIndex={changePage} pageIndex={pageIndex}/>
+      <SideArrow left={false} setPageIndex={changePage} pageIndex={pageIndex}/>
       
       {/* 2. THE WINDOW (Scroll Container): Restricts the height and scrolls */}
       <div 
@@ -33,12 +45,20 @@ function OpenNews( {setShowArticle}) {
         {/* 3. THE CONTENT WRAPPER: This relative container grows to match the image height */}
         <div className="relative w-full">
           {/* The dynamic image determining the true height */}
-          <img src={pages[pageIndex]} alt={`Page ${pageIndex + 1}`} className="w-full h-auto block" />
+          <img
+            src={pages[pageIndex]}
+            
+            className={`
+              w-full h-auto block
+              transition-all duration-300
+              ${fade ? "rotate-y-90 opacity-0" : "rotate-y-0 opacity-100"}
+            `}
+          />
           <div className="absolute top-0 z-50 ">
-            <button className="bg-amber-100 rounded-2xl hover:bg-black transition duration-150"
+            <button className="bg-amber-100 rounded-2xl hover:bg-black transition duration-200"
             onClick={() => setShowArticle(false)}
             >
-              <IoMdClose className=" transition duration-150 size-16 md:size-10 hover:text-white"/>
+              <IoMdClose className=" transition duration-150 size-8 md:size-10 hover:text-white"/>
             </button>
           </div>
 
