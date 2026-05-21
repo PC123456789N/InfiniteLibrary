@@ -17,7 +17,7 @@ function SideArrow( {left, pageIndex, setPageIndex} ){
   
   return(
     <>
-      {left && (
+      {left && pageIndex > 0 && (
         <button
           className="
             absolute
@@ -42,7 +42,7 @@ function SideArrow( {left, pageIndex, setPageIndex} ){
         </button>
       )}
 
-      {!left && (
+      {!left && pageIndex < 3 && (
         <button
           className="
             absolute
