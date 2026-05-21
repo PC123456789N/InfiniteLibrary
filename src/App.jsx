@@ -7,9 +7,10 @@ import news from "./assets/journual.png"
 import NewsArticle from './NewsArticle';
 import SideArrow from './SideArrow';
 import OpenNews from './OpenNews';
+
 import MainMenu from './MainMenu';
 import MainPage from './MainPage';
-
+import Credits from './Credits'
 
 
 
@@ -19,7 +20,7 @@ function App() {
     <>
       {entered == 0 && <MainMenu setEntered={setEntered} /> }
       {entered == 1 && <MainPage setEntered={setEntered} /> }
-      {entered == 2 && <MainPage setEntered={setEntered} /> }
+      {entered == 2 && <Credits setEntered={setEntered} /> }
     </>
   );
 }
