@@ -6,10 +6,12 @@ import { IoMdClose } from "react-icons/io";
 import page1 from "./assets/page1.png";
 import page2 from "./assets/page2.png";
 import page3 from "./assets/page3.png"; 
-import page4 from "./assets/page4.png";  
+import page4 from "./assets/page4.png";
+import page5 from "./assets/page5.png"; 
+import page6 from "./assets/page6.png";   
 
 function OpenNews( {setShowArticle}) {
-  const pages = [page1, page2, page3, page4];
+  const pages = [page1, page2, page3, page4, page5, page6];
   const [fade, setFade] = useState(false)
   const [pageIndex, setPageIndex] = useState(0);
 

@@ -24,7 +24,7 @@ function SideArrow( {left, pageIndex, setPageIndex} ){
   };
 
   function nextPage() {
-    if (pageIndex < 3) {
+    if (pageIndex < 5) {
       playAudio()
       setPageIndex(pageIndex + 1);
     }
@@ -69,7 +69,7 @@ function SideArrow( {left, pageIndex, setPageIndex} ){
         </button>
       )}
 
-      {!left && pageIndex < 3 && (
+      {!left && pageIndex < 5 && (
         <button
           className="
             absolute

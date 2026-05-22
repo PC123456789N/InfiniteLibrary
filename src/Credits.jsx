@@ -30,6 +30,12 @@ function Credits( {setEntered} ) {
         >
         <p className="text-white/50 transition font-semibold text-3xl hover:text-red-900">Sair</p>
       </button>
+      <h4 className="text-2xl sm:hidden text-white absolute top-3/4 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+        Kaio H. Lopes <br />
+        Talita K. Guedes <br />
+        Jade Raquel <br />
+        Guilherme A. <br />
+      </h4>
     </>
   )
 } export default Credits
