@@ -1,4 +1,5 @@
 import credits from "./assets/credits.png"
+import title from "./assets/title.png"
 
 function Credits( {setEntered} ) {
   return (
@@ -12,6 +13,13 @@ function Credits( {setEntered} ) {
           -translate-x-1/2 -translate-y-1/2
           absolute inset-0 w-full h-full object-cover md:object-fill
         "/>
+
+        <img src={title} alt="" className="
+        top-1/2 left-1/2
+        -translate-x-1/2 -translate-y-1/2
+        absolute inset-0
+        opacity-100
+        "/>
       </div>
       <button className="bottom-0 left-1/2
           -translate-x-1/2 -translate-y-1/2
@@ -20,7 +28,7 @@ function Credits( {setEntered} ) {
         "
         onClick={() => setEntered(0)}
         >
-        <p className="text-white/50 transition font-semibold text-3xl hover:text-red-600">Sair</p>
+        <p className="text-white/50 transition font-semibold text-3xl hover:text-red-900">Sair</p>
       </button>
     </>
   )
