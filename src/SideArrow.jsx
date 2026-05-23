@@ -1,10 +1,10 @@
 import { FaChevronLeft } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
-import { useRef } from "react";
+import { useRef,useState } from "react";
 
 import aud1 from "./assets/pagesflip.mp3"
 
-function SideArrow( {left, pageIndex, setPageIndex} ){
+function SideArrow( {left, pageIndex, setPageIndex, maxPage} ){
   const audioRef = useRef(null);
 
   function playAudio(){
@@ -24,7 +24,7 @@ function SideArrow( {left, pageIndex, setPageIndex} ){
   };
 
   function nextPage() {
-    if (pageIndex < 5) {
+    if (pageIndex < maxPage) {
       playAudio()
       setPageIndex(pageIndex + 1);
     }
@@ -69,7 +69,7 @@ function SideArrow( {left, pageIndex, setPageIndex} ){
         </button>
       )}
 
-      {!left && pageIndex < 5 && (
+      {!left && pageIndex < maxPage && (
         <button
           className="
             absolute

@@ -15,11 +15,12 @@ import apage2 from "./assets/2.png";
 import apage3 from "./assets/3.png"; 
 import apage4 from "./assets/4.png";
 import apage5 from "./assets/5.png"; 
-import apage6 from "./assets/6.png";     
+import apage6 from "./assets/6.png";
+import apage7 from "./assets/7.png";      
 
 function OpenNews( {setShowArticle, type}) {
   const pages = [page1, page2, page3, page4, page5, page6];
-  const apages = [apage1, apage2, apage3, apage4, apage5, apage6];
+  const apages = [apage1, apage2, apage3, apage4, apage5, apage6, apage7];
   const [fade, setFade] = useState(false)
   const [pageIndex, setPageIndex] = useState(0);
 
@@ -37,8 +38,8 @@ function OpenNews( {setShowArticle, type}) {
   return (
     /* 1. SCREEN WRAPPER: Centers the component on the viewport */
     <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-auto">
-      <SideArrow left={true} setPageIndex={changePage} pageIndex={pageIndex}/>
-      <SideArrow left={false} setPageIndex={changePage} pageIndex={pageIndex}/>
+      <SideArrow left={true} setPageIndex={changePage} pageIndex={pageIndex} maxPage={type<2?6:5}/>
+      <SideArrow left={false} setPageIndex={changePage} pageIndex={pageIndex} maxPage={type<2?6:5}/>
       
       {/* 2. THE WINDOW (Scroll Container): Restricts the height and scrolls */}
       <div 
@@ -65,7 +66,7 @@ function OpenNews( {setShowArticle, type}) {
             `}
           />
           <div className="absolute top-0 z-50 ">
-            <button className="bg-amber-100 rounded-2xl hover:bg-black transition duration-200"
+            <button className={`rounded-xl rounded-t-none rounded-s-none hover:bg-black transition duration-200 ${type < 2 ? "bg-gray-300" : "bg-amber-100"}`}
             onClick={() => setShowArticle(false)}
             >
               <IoMdClose className=" transition duration-150 size-8 md:size-10 hover:text-white"/>
