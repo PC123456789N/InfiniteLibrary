@@ -20,6 +20,8 @@ function MainPage( {setEntered} ) {
   const [sit, setSit] = useState(false);
   const [showArticle, setShowArticle] = useState(false);
   const audioRef = useRef(null);
+  
+  const [type, setType] = useState(null);
 
   function changeFrame(goSit) {
     // escurece
@@ -142,14 +144,14 @@ function MainPage( {setEntered} ) {
 
       {/* Optional Content */}
       {showArticle && (
-        <OpenNews setShowArticle={setShowArticle}/>
+        <OpenNews setShowArticle={setShowArticle} type={type}/>
       )}
 
       <audio ref={audioRef} />
 
 
 
-      {sit && <NewsArticle setShowArticle={setShowArticle} showArticle={showArticle}/>}
+      {sit && <NewsArticle setShowArticle={setShowArticle} showArticle={showArticle} setType={setType}/>}
 
       {!sit && <SideButton home={true} setEntered={setEntered} setCredits={true} setFade={setFade}/>}
       {!sit && <SideButton home={false} setEntered={setEntered} setCredits={true} setFade={setFade}/>}

@@ -8,10 +8,18 @@ import page2 from "./assets/page2.png";
 import page3 from "./assets/page3.png"; 
 import page4 from "./assets/page4.png";
 import page5 from "./assets/page5.png"; 
-import page6 from "./assets/page6.png";   
+import page6 from "./assets/page6.png";
 
-function OpenNews( {setShowArticle}) {
+import apage1 from "./assets/1.png";
+import apage2 from "./assets/2.png";
+import apage3 from "./assets/3.png"; 
+import apage4 from "./assets/4.png";
+import apage5 from "./assets/5.png"; 
+import apage6 from "./assets/6.png";     
+
+function OpenNews( {setShowArticle, type}) {
   const pages = [page1, page2, page3, page4, page5, page6];
+  const apages = [apage1, apage2, apage3, apage4, apage5, apage6];
   const [fade, setFade] = useState(false)
   const [pageIndex, setPageIndex] = useState(0);
 
@@ -48,7 +56,7 @@ function OpenNews( {setShowArticle}) {
         <div className="relative w-full">
           {/* The dynamic image determining the true height */}
           <img
-            src={pages[pageIndex]}
+            src={type < 2 ? apages[pageIndex] : pages[pageIndex]}
             
             className={`
               w-full h-auto block
